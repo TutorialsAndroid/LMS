@@ -77,4 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void login() {
     //Handle login logic
   }
+
+  void signUP() {
+    //Handle signUp logic
+  }
 }
