@@ -1,0 +1,18 @@
+import 'package:flutter/material.dart';
+
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+}
