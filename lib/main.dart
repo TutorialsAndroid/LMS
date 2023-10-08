@@ -68,6 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text('Login IN'),
             ),
 
+            OutlinedButton(
+              onPressed: () {
+                signUP();
+              },
+              child: const Text('New here? Register first..'),
+            ),
+
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
