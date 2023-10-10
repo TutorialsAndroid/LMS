@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms/sign_up_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -87,5 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void signUP() {
     //Handle signUp logic
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SignUpScreen(title: 'Register',)),
+    );
   }
 }
