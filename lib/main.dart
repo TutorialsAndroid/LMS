@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lms/sign_up_screen.dart';
 
+import 'home_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -84,6 +86,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void login() {
     //Handle login logic
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Register',)),
+    );
   }
 
   void signUP() {
