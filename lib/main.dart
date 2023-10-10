@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: InputDecoration(
                   hintText: 'Enter Password...',
                 ),
+                obscureText: true, // Set this property to true to obscure the text as a password
               ),
             ),
 
