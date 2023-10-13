@@ -71,32 +71,32 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 ListTile(
                   leading: Image.asset('assets/it_project_management.jpg',),
-                  title: Text('4.1 IT Project Management'),
-                  subtitle: Text('21VMT1S401'),
+                  title: const Text('4.1 IT Project Management'),
+                  subtitle: const Text('21VMT1S401'),
                 ),
 
                 ListTile(
                   leading: Image.asset('assets/ai_ml.jpg',),
-                  title: Text('4.2 Artificial Intelligence and Machine Learning'),
-                  subtitle: Text('21VMT1S402'),
+                  title: const Text('4.2 Artificial Intelligence and Machine Learning'),
+                  subtitle: const Text('21VMT1S402'),
                 ),
 
                 ListTile(
                   leading: Image.asset('assets/dcs.jpg',),
-                  title: Text('4.2 Defensive Cyber Security Technologies'),
-                  subtitle: Text('21VMT7S402'),
+                  title: const Text('4.2 Defensive Cyber Security Technologies'),
+                  subtitle: const Text('21VMT7S402'),
                 ),
 
                 ListTile(
                   leading: Image.asset('assets/bda.jpg',),
-                  title: Text('4.3 Big Data Analytics'),
-                  subtitle: Text('21VMT1S403'),
+                  title: const Text('4.3 Big Data Analytics'),
+                  subtitle: const Text('21VMT1S403'),
                 ),
 
                 ListTile(
                   leading: Image.asset('assets/iot.jpg',),
-                  title: Text('4.4 Internet of Things'),
-                  subtitle: Text('21VMT1S404'),
+                  title: const Text('4.4 Internet of Things'),
+                  subtitle: const Text('21VMT1S404'),
                 ),
               ],
             ),
