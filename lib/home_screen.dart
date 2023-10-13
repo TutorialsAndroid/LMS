@@ -69,6 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.white, // Background color of the card
             child: Column(
               children: <Widget>[
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.all(6.0),
+                    child: Text('Subjects', style: TextStyle(fontSize: 18),),
+                  )
+                ),
+
                 ListTile(
                   leading: Image.asset('assets/it_project_management.jpg',),
                   title: const Text('4.1 IT Project Management'),
