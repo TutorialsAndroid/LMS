@@ -101,19 +101,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void login() {
     //Handle login logic
+    Navigator.pop(context);
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Home',)),
     );
-    Navigator.pop(context);
   }
 
   void signUP() {
     //Handle signUp logic
+    Navigator.pop(context);
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const SignUpScreen(title: 'Register',)),
     );
-    Navigator.pop(context);
   }
 }
