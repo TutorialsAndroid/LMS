@@ -10,10 +10,80 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+  bool _isObscured = true;
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _isObscured = !_isObscured;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(widget.title),
+        ),
+        body: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter Email Id...',
+                      ),
+                    ),
+                  ),
 
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter Password...',
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _isObscured ? Icons.visibility : Icons.visibility_off,
+                          ),
+                          onPressed: _togglePasswordVisibility,
+                        ),
+                      ),
+                      obscureText: _isObscured,
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Re-Enter Password...',
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _isObscured ? Icons.visibility : Icons.visibility_off,
+                          ),
+                          onPressed: _togglePasswordVisibility,
+                        ),
+                      ),
+                      obscureText: _isObscured,
+                    ),
+                  ),
+
+                  OutlinedButton(
+                    onPressed: () {
+                      register();
+                    },
+                    child: const Text('Register'),
+                  ),
+                ]
+            )
+        )
     );
+  }
+
+  void register() {
+
   }
 }

@@ -103,8 +103,9 @@ class _MyHomePageState extends State<MyHomePage> {
     //Handle login logic
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Register',)),
+      MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Home',)),
     );
+    Navigator.pop(context);
   }
 
   void signUP() {
@@ -113,5 +114,6 @@ class _MyHomePageState extends State<MyHomePage> {
       context,
       MaterialPageRoute(builder: (context) => const SignUpScreen(title: 'Register',)),
     );
+    Navigator.pop(context);
   }
 }
