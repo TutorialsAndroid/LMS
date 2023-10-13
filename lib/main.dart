@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.pop(context);
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Home',)),
+      MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Master of Computer Applications',)),
     );
   }
 
