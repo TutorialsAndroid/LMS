@@ -114,7 +114,48 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             const MyCalendarWidget(),
-          ],
+
+            Card(
+                elevation: 4, // Controls the shadow and depth of the card
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)), // Controls the shape of the card
+                color: Colors.white, // Background color of the card
+                child: const Column(
+                  children: <Widget>[
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.all(6.0),
+                          child: Text('Upcoming', style: TextStyle(fontSize: 18),),
+                        )
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.calendar_month),
+                      title: Text('Big Data Analytics'),
+                      subtitle: Text('4.3 Big Data Analytics'),
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.calendar_month),
+                      title: Text('IT Project Management'),
+                      subtitle: Text('4.1 IT Project Management'),
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.calendar_month),
+                      title: Text('Defensive Cyber Security Technologies'),
+                      subtitle: Text('4.2 Defensive Cyber Security Technologies'),
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.calendar_month),
+                      title: Text('Internet of Things'),
+                      subtitle: Text('4.4 Internet of Things'),
+                    ),
+                  ],
+                )
+            ),
+          ]
         ),
       )
     );
