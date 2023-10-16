@@ -50,23 +50,23 @@ class _HomeScreenState extends State<HomeScreen> {
           child: ListView(
             children: <Widget>[
               const UserAccountsDrawerHeader(
-                accountName: Text("Tushar"),
-                accountEmail: Text("tusharsunilmasram@gmail.com"),
+                accountName: Text("lorem ipsum"),
+                accountEmail: Text("lorem_ipsum@gmail.com"),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: Colors.white,
                   child: Icon(Icons.person),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.fiber_manual_record),
-                title: Text('Attendance Records'),
+                leading: const Icon(Icons.fiber_manual_record),
+                title: const Text('Attendance Records'),
                 onTap: () {
                   // Add your navigation logic here
                 },
               ),
               ListTile(
-                leading: Icon(Icons.logout),
-                title: Text('Logout'),
+                leading: const Icon(Icons.logout),
+                title: const Text('Logout'),
                 onTap: () {
                   // Add your navigation logic here
                 },
