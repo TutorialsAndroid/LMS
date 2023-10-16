@@ -17,7 +17,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         backgroundColor: Colors.indigo,
         title: Text(widget.title, style: const TextStyle(color: Colors.white),),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
