@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms/notifications_screen.dart';
 
 import 'my_calendar_widget.dart';
 
@@ -18,6 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
     _scaffoldKey.currentState?.openDrawer();
   }
 
+  void _openNotificationsScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const NotificationsScreen(title: 'Notifications',)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: <Widget>[
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  _openNotificationsScreen();
+                },
                 icon: const Icon(
                   Icons.notifications, color: Colors.white,
                 )
