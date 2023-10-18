@@ -1,4 +1,4 @@
-# lms
+# LMS ( Integrated Learning Management System )
 
 A learning management system
 

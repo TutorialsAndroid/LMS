@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lms/inbox_screen.dart';
+import 'package:lms/main.dart';
 import 'package:lms/notifications_screen.dart';
 
 import 'my_calendar_widget.dart';
@@ -26,6 +28,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _openInboxScreen() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const InboxScreen(title: "My Inbox"))
+    );
+  }
+
+  void _logOut() {
+    Navigator.pop(context);
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MyHomePage(title: "Login"))
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
             ),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  _openInboxScreen();
+                },
                 icon: const Icon(
                   Icons.inbox, color: Colors.white,
                 )
@@ -79,6 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: const Text('Logout'),
                 onTap: () {
                   // Add your navigation logic here
+                  _logOut();
                 },
               ),
             ],
