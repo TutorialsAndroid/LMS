@@ -39,10 +39,42 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             CircularPercentIndicator(
               radius: 60.0,
               lineWidth: 8.0,
-              percent: 1.0,
+              percent: 0.6,
               center: const Text("60%", style: TextStyle(color: Colors.white, fontSize: 18),),
               progressColor: Colors.green,
+            ),
+
+            const Padding(
+              padding: EdgeInsets.all(16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text('Subjects', style: TextStyle(color: Colors.white, fontSize: 20),),
+              )
+            ),
+
+            Card(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)), // Controls the shape of the card
+              elevation: 8,
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text('Defensive Cyber Security Technologies', style: TextStyle(color: Colors.black, fontSize: 16),),
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 5, 16, 10),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                    )
+                  )
+                ],
+              ),
             )
+
           ],
         ),
       )
