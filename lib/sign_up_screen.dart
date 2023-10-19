@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key, required this.title});
 
@@ -84,6 +86,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void register() {
-
+    Navigator.pop(context);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Master of Computer Applications',)),
+    );
   }
 }

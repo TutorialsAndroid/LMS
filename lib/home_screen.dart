@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms/attendance_screen.dart';
 import 'package:lms/inbox_screen.dart';
 import 'package:lms/main.dart';
 import 'package:lms/notifications_screen.dart';
@@ -32,6 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const InboxScreen(title: "My Inbox"))
+    );
+  }
+
+  void _openAttendanceScreen() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const AttendanceScreen(title: "Welcome, Tushar"))
     );
   }
 
@@ -91,6 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: const Text('Attendance Records'),
                 onTap: () {
                   // Add your navigation logic here
+                  _openAttendanceScreen();
                 },
               ),
               ListTile(
