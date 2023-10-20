@@ -44,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _logOut() {
-    Navigator.pop(context);
     Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const MyHomePage(title: "Login"))
@@ -107,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: const Text('Logout'),
                 onTap: () {
                   // Add your navigation logic here
+                  Navigator.pop(context);
                   _logOut();
                 },
               ),
