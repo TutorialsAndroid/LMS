@@ -52,56 +52,80 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(16.0))
-                  ),
-                  hintText: 'Enter Email Id...',
-                ),
-              ),
-            ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
 
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16.0))
-                  ),
-                  hintText: 'Enter Password...',
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _isObscured ? Icons.visibility : Icons.visibility_off,
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Image.asset(
+                      'assets/elearning.png',
+                      height: 130,
+                      width: 130,
                     ),
-                    onPressed: _togglePasswordVisibility,
+                  ),
+
+                  const Text(
+                    'E-Learning at your\nfingertips...',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold
+                    ),
+                  )
+                ],
+              ),
+
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    hintText: 'Enter Email Id...',
                   ),
                 ),
-                obscureText: _isObscured,
               ),
-            ),
 
-            OutlinedButton(
-              onPressed: () {
-                login();
-              },
-              child: const Text('Login IN'),
-            ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    hintText: 'Enter Password...',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isObscured ? Icons.visibility : Icons.visibility_off,
+                      ),
+                      onPressed: _togglePasswordVisibility,
+                    ),
+                  ),
+                  obscureText: _isObscured,
+                ),
+              ),
 
-            OutlinedButton(
-              onPressed: () {
-                signUP();
-              },
-              child: const Text('New here? Register first..'),
-            ),
+              OutlinedButton(
+                onPressed: () {
+                  login();
+                },
+                child: const Text('Login IN'),
+              ),
 
-          ],
-        ),
+              OutlinedButton(
+                onPressed: () {
+                  signUP();
+                },
+                child: const Text('New here? Register first..'),
+              ),
+
+            ],
+          ),
+        )
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
