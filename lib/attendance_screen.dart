@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:percent_indicator/percent_indicator.dart';
 
 class AttendanceScreen extends StatefulWidget {

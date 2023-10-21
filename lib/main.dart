@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'LMS',
+      title: 'Learning Management System',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'LMS'),
+      home: const MyHomePage(title: 'Learning Management System'),
     );
   }
 }
@@ -49,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -58,6 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(16.0),
               child: TextField(
                 decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(16.0))
+                  ),
                   hintText: 'Enter Email Id...',
                 ),
               ),
@@ -67,6 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(16.0),
               child: TextField(
                 decoration: InputDecoration(
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(16.0))
+                  ),
                   hintText: 'Enter Password...',
                   suffixIcon: IconButton(
                     icon: Icon(
