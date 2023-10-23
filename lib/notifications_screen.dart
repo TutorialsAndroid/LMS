@@ -16,6 +16,17 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       appBar: AppBar(
         backgroundColor: Colors.indigo,
         title: Text(widget.title, style: const TextStyle(color: Colors.white),),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              color: Colors.white, // Change the color here
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            );
+          },
+        ),
       ),
       body: const Center(
         child: Column(
