@@ -22,6 +22,17 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
           widget.title,
           style: const TextStyle(color: Colors.white),
         ),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              color: Colors.white, // Change the color here
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            );
+          },
+        ),
       ),
       body: SingleChildScrollView(
         child: Center(
