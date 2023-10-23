@@ -31,6 +31,32 @@ class _RecordedSessionsScreenState extends State<RecordedSessions> {
           },
         ),
       ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Add more children here using a loop
+            for (int i = 0; i < 4; i++) // Change the loop condition as needed
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Card(
+                  elevation: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: ListTile(
+                      leading: Image.asset('assets/video_player.png'),
+                      title: Text(widget.title),
+                      subtitle: Text('Session: $i'),
+                      onTap: () {
+                        // Add your logic here
+                      },
+                    ),
+                  ),
+                ),
+              ),
+          ],
+
+        ),
+      )
     );
   }
 }
