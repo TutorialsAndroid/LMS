@@ -73,6 +73,7 @@ flutter:
     - assets/it_project_management.jpg
     - assets/elearning.png
     - assets/video_player.png
+    - assets/jain_banner.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

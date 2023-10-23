@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: <Widget>[
                     Padding(
                         padding: const EdgeInsets.all(1.0),
-                        child: Image.asset('assets/navratri_lms.jpg')
+                        child: Image.asset('assets/jain_banner.png')
                     ),
                   ],
                 ),
