@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class JoinLecture extends StatefulWidget {
   final String title;
+  final String avatarPath;
 
-  const JoinLecture({super.key, required this.title});
+  const JoinLecture({super.key, required this.title, required this.avatarPath});
 
   @override
   State<JoinLecture> createState() => _JoinLectureScreenState();
@@ -32,6 +33,18 @@ class _JoinLectureScreenState extends State<JoinLecture> {
               },
             );
           },
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage(widget.avatarPath), // Provide the path to your image
+                radius: 50, // Set the radius of the circle
+              )
+            ],
+          ),
         ),
       ),
     );

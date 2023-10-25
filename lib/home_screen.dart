@@ -59,10 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _openJoinLectureScreen(String t) {
+  void _openJoinLectureScreen(String t, String ap) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => JoinLecture(title: t))
+      MaterialPageRoute(builder: (context) => JoinLecture(title: t, avatarPath: ap,))
     );
   }
 
@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: const Text('Big Data Analytics'),
                         subtitle: const Text('4.3 Big Data Analytics'),
                         onTap: () {
-                          _openJoinLectureScreen('Big Data Analytics');
+                          _openJoinLectureScreen('Big Data Analytics', 'assets/bda.jpg');
                         },
                       ),
 
@@ -248,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: const Text('IT Project Management'),
                         subtitle: const Text('4.1 IT Project Management'),
                         onTap: () {
-                          _openJoinLectureScreen('IT Project Management');
+                          _openJoinLectureScreen('IT Project Management', 'assets/it_project_management.jpg');
                         },
                       ),
 
@@ -257,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: const Text('Defensive Cyber Security Technologies'),
                         subtitle: const Text('4.2 Defensive Cyber Security Technologies'),
                         onTap: () {
-                          _openJoinLectureScreen('Defensive Cyber Security Technologies');
+                          _openJoinLectureScreen('Defensive Cyber Security Technologies', 'assets/dcs.jpg');
                         },
                       ),
 
@@ -266,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: const Text('Internet of Things'),
                         subtitle: const Text('4.4 Internet of Things'),
                         onTap: () {
-                          _openJoinLectureScreen('Internet of Things');
+                          _openJoinLectureScreen('Internet of Things', 'assets/iot.jpg');
                         },
                       ),
                     ],
