@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lms/attendance_screen.dart';
 import 'package:lms/inbox_screen.dart';
+import 'package:lms/join_lecture.dart';
 import 'package:lms/main.dart';
 import 'package:lms/notifications_screen.dart';
 import 'package:lms/recorded_sessions.dart';
@@ -55,6 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => RecordedSessions(title: t))
+    );
+  }
+
+  void _openJoinLectureScreen(String t) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => JoinLecture(title: t))
     );
   }
 
@@ -231,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: const Text('Big Data Analytics'),
                         subtitle: const Text('4.3 Big Data Analytics'),
                         onTap: () {
-
+                          _openJoinLectureScreen('Big Data Analytics');
                         },
                       ),
 
@@ -240,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: const Text('IT Project Management'),
                         subtitle: const Text('4.1 IT Project Management'),
                         onTap: () {
-
+                          _openJoinLectureScreen('IT Project Management');
                         },
                       ),
 
@@ -249,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: const Text('Defensive Cyber Security Technologies'),
                         subtitle: const Text('4.2 Defensive Cyber Security Technologies'),
                         onTap: () {
-
+                          _openJoinLectureScreen('Defensive Cyber Security Technologies');
                         },
                       ),
 
@@ -258,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: const Text('Internet of Things'),
                         subtitle: const Text('4.4 Internet of Things'),
                         onTap: () {
-
+                          _openJoinLectureScreen('Internet of Things');
                         },
                       ),
                     ],
