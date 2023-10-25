@@ -216,9 +216,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   elevation: 4, // Controls the shadow and depth of the card
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)), // Controls the shape of the card
                   color: Colors.white, // Background color of the card
-                  child: const Column(
+                  child: Column(
                     children: <Widget>[
-                      Align(
+                      const Align(
                           alignment: Alignment.centerLeft,
                           child: Padding(
                             padding: EdgeInsets.all(6.0),
@@ -227,27 +227,39 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
 
                       ListTile(
-                        leading: Icon(Icons.calendar_month),
-                        title: Text('Big Data Analytics'),
-                        subtitle: Text('4.3 Big Data Analytics'),
+                        leading: const Icon(Icons.calendar_month),
+                        title: const Text('Big Data Analytics'),
+                        subtitle: const Text('4.3 Big Data Analytics'),
+                        onTap: () {
+
+                        },
                       ),
 
                       ListTile(
-                        leading: Icon(Icons.calendar_month),
-                        title: Text('IT Project Management'),
-                        subtitle: Text('4.1 IT Project Management'),
+                        leading: const Icon(Icons.calendar_month),
+                        title: const Text('IT Project Management'),
+                        subtitle: const Text('4.1 IT Project Management'),
+                        onTap: () {
+
+                        },
                       ),
 
                       ListTile(
-                        leading: Icon(Icons.calendar_month),
-                        title: Text('Defensive Cyber Security Technologies'),
-                        subtitle: Text('4.2 Defensive Cyber Security Technologies'),
+                        leading: const Icon(Icons.calendar_month),
+                        title: const Text('Defensive Cyber Security Technologies'),
+                        subtitle: const Text('4.2 Defensive Cyber Security Technologies'),
+                        onTap: () {
+
+                        },
                       ),
 
                       ListTile(
-                        leading: Icon(Icons.calendar_month),
-                        title: Text('Internet of Things'),
-                        subtitle: Text('4.4 Internet of Things'),
+                        leading: const Icon(Icons.calendar_month),
+                        title: const Text('Internet of Things'),
+                        subtitle: const Text('4.4 Internet of Things'),
+                        onTap: () {
+
+                        },
                       ),
                     ],
                   )
