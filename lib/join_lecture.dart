@@ -21,6 +21,18 @@ class _JoinLectureScreenState extends State<JoinLecture> {
               color: Colors.white
           ),
         ),
+        centerTitle: true,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              color: Colors.white, // Change the color here
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            );
+          },
+        ),
       ),
     );
   }
