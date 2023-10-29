@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Colors.indigo,
+          backgroundColor: const Color(0xFF004987),//#004987
           leading: IconButton(
             onPressed: () { _openDrawer(); },
             icon: const Icon(

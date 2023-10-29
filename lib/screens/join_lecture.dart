@@ -31,7 +31,7 @@ class _JoinLectureScreenState extends State<JoinLecture> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: const Color(0xFF004987),//#004987
         title: Text(
           widget.title,
           style: const TextStyle(
