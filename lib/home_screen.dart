@@ -5,6 +5,7 @@ import 'package:lms/join_lecture.dart';
 import 'package:lms/main.dart';
 import 'package:lms/notifications_screen.dart';
 import 'package:lms/recorded_sessions_screens/ai_ml.dart';
+import 'package:lms/recorded_sessions_screens/big_data_analysis.dart';
 import 'package:lms/recorded_sessions_screens/defensive_cyber_sec.dart';
 import 'package:lms/recorded_sessions_screens/it_project_management.dart';
 
@@ -206,7 +207,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.3 Big Data Analytics'),
                       subtitle: const Text('21VMT1S403'),
                       onTap: () {
-                        //TODO
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const BigDataAnalysis(title: 'Big Data Analytics'))
+                        );
                       },
                     ),
 
