@@ -4,6 +4,7 @@ import 'package:lms/inbox_screen.dart';
 import 'package:lms/join_lecture.dart';
 import 'package:lms/main.dart';
 import 'package:lms/notifications_screen.dart';
+import 'package:lms/recorded_sessions_screens/ai_ml.dart';
 import 'package:lms/recorded_sessions_screens/it_project_management.dart';
 
 import 'my_calendar_widget.dart';
@@ -180,7 +181,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.2 Artificial Intelligence and Machine Learning'),
                       subtitle: const Text('21VMT1S402'),
                       onTap: () {
-                       //TODO
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const AIML(title: 'Artificial Intelligence and Machine Learning'))
+                        );
                       },
                     ),
 
