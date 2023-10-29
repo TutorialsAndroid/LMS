@@ -5,6 +5,7 @@ import 'package:lms/join_lecture.dart';
 import 'package:lms/main.dart';
 import 'package:lms/notifications_screen.dart';
 import 'package:lms/recorded_sessions_screens/ai_ml.dart';
+import 'package:lms/recorded_sessions_screens/defensive_cyber_sec.dart';
 import 'package:lms/recorded_sessions_screens/it_project_management.dart';
 
 import 'my_calendar_widget.dart';
@@ -193,7 +194,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.2 Defensive Cyber Security Technologies'),
                       subtitle: const Text('21VMT7S402'),
                       onTap: () {
-                        //TODO
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const DefensiveCyberSec(title: 'Defensive Cyber Security Technologies'))
+                        );
                       },
                     ),
 
