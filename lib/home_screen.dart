@@ -7,6 +7,7 @@ import 'package:lms/notifications_screen.dart';
 import 'package:lms/recorded_sessions_screens/ai_ml.dart';
 import 'package:lms/recorded_sessions_screens/big_data_analysis.dart';
 import 'package:lms/recorded_sessions_screens/defensive_cyber_sec.dart';
+import 'package:lms/recorded_sessions_screens/internet_of_things.dart';
 import 'package:lms/recorded_sessions_screens/it_project_management.dart';
 
 import 'my_calendar_widget.dart';
@@ -219,7 +220,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.4 Internet of Things'),
                       subtitle: const Text('21VMT1S404'),
                       onTap: () {
-                        //TODO
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const InternetOfThings(title: 'Internet of Things'))
+                        );
                       },
                     ),
                   ],
