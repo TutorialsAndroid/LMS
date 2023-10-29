@@ -4,7 +4,7 @@ import 'package:lms/inbox_screen.dart';
 import 'package:lms/join_lecture.dart';
 import 'package:lms/main.dart';
 import 'package:lms/notifications_screen.dart';
-import 'package:lms/recorded_sessions.dart';
+import 'package:lms/recorded_sessions_screens/it_project_management.dart';
 
 import 'my_calendar_widget.dart';
 
@@ -49,13 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const MyHomePage(title: "Login"))
-    );
-  }
-
-  void _openRecordedSessionsScreen(String t) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => RecordedSessions(title: t))
     );
   }
 
@@ -175,7 +168,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.1 IT Project Management'),
                       subtitle: const Text('21VMT1S401'),
                       onTap: () {
-                        _openRecordedSessionsScreen('IT Project Management');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const ITProjectManagement(title: 'IT Project Management'))
+                        );
                       },
                     ),
 
@@ -184,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.2 Artificial Intelligence and Machine Learning'),
                       subtitle: const Text('21VMT1S402'),
                       onTap: () {
-                        _openRecordedSessionsScreen('Artificial Intelligence and Machine Learning');
+                       //TODO
                       },
                     ),
 
@@ -193,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.2 Defensive Cyber Security Technologies'),
                       subtitle: const Text('21VMT7S402'),
                       onTap: () {
-                        _openRecordedSessionsScreen('Defensive Cyber Security Technologies');
+                        //TODO
                       },
                     ),
 
@@ -202,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.3 Big Data Analytics'),
                       subtitle: const Text('21VMT1S403'),
                       onTap: () {
-                        _openRecordedSessionsScreen('Big Data Analytics');
+                        //TODO
                       },
                     ),
 
@@ -211,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: const Text('4.4 Internet of Things'),
                       subtitle: const Text('21VMT1S404'),
                       onTap: () {
-                        _openRecordedSessionsScreen('Internet of Things');
+                        //TODO
                       },
                     ),
                   ],

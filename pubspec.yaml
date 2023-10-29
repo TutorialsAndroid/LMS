@@ -74,6 +74,10 @@ flutter:
     - assets/elearning.png
     - assets/video_player.png
     - assets/jain_banner.png
+    - assets/it_project_managment/lesson2.jpg
+    - assets/it_project_managment/lesson3.jpg
+    - assets/it_project_managment/lesson4.jpg
+    - assets/it_project_managment/lesson5.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class JoinLecture extends StatefulWidget {
@@ -13,8 +11,6 @@ class JoinLecture extends StatefulWidget {
 }
 
 class _JoinLectureScreenState extends State<JoinLecture> {
-
-  Random random = Random();
 
   bool isMicEnabled = true; // Initial state
   bool isCameraEnabled = true; //Initial state
@@ -33,8 +29,6 @@ class _JoinLectureScreenState extends State<JoinLecture> {
 
   @override
   Widget build(BuildContext context) {
-    bool randomBool = random.nextBool();
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
