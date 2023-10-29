@@ -24,8 +24,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+          backgroundColor: const Color(0xFF004987),//#004987
+          title: Text(widget.title, style: const TextStyle(color: Colors.white),),
         ),
         body: Center(
             child: Column(

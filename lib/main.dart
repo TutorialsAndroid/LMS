@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Learning Management System',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF004987)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Learning Management System'),
@@ -46,8 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: const Color(0xFF004987),//#004987
+        title: Text(widget.title, style: const TextStyle(color: Colors.white),),
         centerTitle: true,
       ),
       body: Center(
