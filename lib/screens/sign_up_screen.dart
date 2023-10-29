@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'home_screen.dart';
+import 'package:lms/screens/home_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key, required this.title});

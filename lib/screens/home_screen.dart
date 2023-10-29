@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:lms/attendance_screen.dart';
-import 'package:lms/inbox_screen.dart';
-import 'package:lms/join_lecture.dart';
-import 'package:lms/main.dart';
-import 'package:lms/notifications_screen.dart';
+import 'package:lms/screens/attendance_screen.dart';
 import 'package:lms/recorded_sessions_screens/ai_ml.dart';
 import 'package:lms/recorded_sessions_screens/big_data_analysis.dart';
 import 'package:lms/recorded_sessions_screens/defensive_cyber_sec.dart';
 import 'package:lms/recorded_sessions_screens/internet_of_things.dart';
 import 'package:lms/recorded_sessions_screens/it_project_management.dart';
+import 'package:lms/screens/inbox_screen.dart';
+import 'package:lms/screens/join_lecture.dart';
+import 'package:lms/main.dart';
+import 'package:lms/screens/notifications_screen.dart';
 
-import 'my_calendar_widget.dart';
+import '../my_calendar_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});

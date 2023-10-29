@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lms/sign_up_screen.dart';
-
-import 'home_screen.dart';
+import 'package:lms/screens/home_screen.dart';
+import 'package:lms/screens/sign_up_screen.dart';
 
 void main() {
   runApp(const MyApp());
