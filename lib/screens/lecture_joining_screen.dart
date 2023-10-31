@@ -34,11 +34,40 @@ class _LectureJoiningScreenState extends State<LectureJoining> {
           },
         ),
       ),
-      body: Center(
+      body: const Center(
         child: SingleChildScrollView(
-
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.person_2_outlined,
+                color: Colors.grey,
+                size: 120.0,
+              )
+            ],
+          ),
         ),
-      )
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.mic_off),
+            label: 'Unmute',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.videocam_off_rounded),
+            label: 'Start Video',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.group),
+            label: 'Participants',
+          ),
+        ],
+        backgroundColor: Colors.black12,
+        selectedItemColor: Colors.white70,
+        unselectedItemColor: Colors.white70,
+
+      ),
     );
   }
 }
