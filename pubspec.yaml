@@ -78,6 +78,10 @@ flutter:
     - assets/it_project_managment/lesson3.jpg
     - assets/it_project_managment/lesson4.jpg
     - assets/it_project_managment/lesson5.jpg
+    - assets/profile_photo/a.png
+    - assets/profile_photo/t.png
+    - assets/profile_photo/j.png
+    - assets/profile_photo/s.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
