@@ -15,7 +15,7 @@ class _LectureJoiningScreenState extends State<LectureJoining> {
     _scaffoldKey.currentState?.showBottomSheet( (context) {
         return Container(
           height: 200,
-          child: Center(
+          child: const Center(
             child: SingleChildScrollView(
               child: Column(
                 children: [
