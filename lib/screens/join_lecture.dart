@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms/screens/lecture_joining_screen.dart';
 
 class JoinLecture extends StatefulWidget {
   final String title;
@@ -79,7 +80,12 @@ class _JoinLectureScreenState extends State<JoinLecture> {
               ),
 
               OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LectureJoining(title: widget.title))
+                    );
+                  },
                   child: const Text('Join Lecture')
               ),
 
