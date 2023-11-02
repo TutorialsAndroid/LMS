@@ -50,10 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _logOut() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const MyHomePage(title: "Login"))
-    );
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MyHomePage(title: "Login")));
   }
 
   void _openJoinLectureScreen(String t, String ap) {
@@ -119,7 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: const Text('Logout'),
                 onTap: () {
                   // Add your navigation logic here
-                  Navigator.pop(context);
                   _logOut();
                 },
               ),
