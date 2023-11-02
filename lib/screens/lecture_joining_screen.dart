@@ -11,11 +11,26 @@ class LectureJoining extends StatefulWidget {
 class _LectureJoiningScreenState extends State<LectureJoining> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool isMicEnabled = true; // Initial state
+  bool isCameraEnabled = true; //Initial state
+
+  void toggleMic() {
+    setState(() {
+      isMicEnabled = !isMicEnabled;
+    });
+  }
+
+  void toggleCamera() {
+    setState(() {
+      isCameraEnabled = !isCameraEnabled;
+    });
+  }
+
   void _showBottomSheet() {
     _scaffoldKey.currentState?.showBottomSheet( (context) {
-        return Container(
+        return const SizedBox(
           height: 200,
-          child: const Center(
+          child: Center(
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -159,17 +174,26 @@ class _LectureJoiningScreenState extends State<LectureJoining> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.mic_off),
+            icon: IconButton.outlined(
+                onPressed: toggleMic,
+                icon: isMicEnabled ? const Icon(Icons.mic) : const Icon(Icons.mic_off)
+            ),
             label: 'Unmute',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.videocam_off_rounded),
+            icon: IconButton.outlined(
+                onPressed: toggleCamera,
+                icon: isCameraEnabled ? const Icon(Icons.videocam) : const Icon(Icons.videocam_off)
+            ),
             label: 'Start Video',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.group),
+            icon: IconButton.outlined(
+                onPressed: _showBottomSheet,
+                icon: const Icon(Icons.group)
+            ),
             label: 'Participants 5',
           ),
         ],
@@ -177,12 +201,57 @@ class _LectureJoiningScreenState extends State<LectureJoining> {
         selectedItemColor: Colors.white70,
         unselectedItemColor: Colors.white70,
         onTap: (index) {
+          if (index == 0) {
+
+          }
           if (index == 2) {
             // Show the bottom sheet when the "More" tab is clicked
             _showBottomSheet();
           } else {}
         }
       ),
+    );
+  }
+}
+
+class MicButton extends StatefulWidget {
+  final VoidCallback onPressed;
+  final bool isMicEnabled;
+
+  const MicButton({super.key, required this.onPressed, required this.isMicEnabled});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _MicButtonState createState() => _MicButtonState();
+}
+
+class _MicButtonState extends State<MicButton> {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton.outlined(
+      onPressed: widget.onPressed,
+      icon: widget.isMicEnabled ? const Icon(Icons.mic) : const Icon(Icons.mic_off),
+    );
+  }
+}
+
+class CameraButton extends StatefulWidget {
+  final VoidCallback onPressed;
+  final bool isCameraEnabled;
+
+  const CameraButton({super.key, required this.onPressed, required this.isCameraEnabled});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _CameraButtonState createState() => _CameraButtonState();
+}
+
+class _CameraButtonState extends State<CameraButton> {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton.outlined(
+      onPressed: widget.onPressed,
+      icon: widget.isCameraEnabled ? const Icon(Icons.videocam) : const Icon(Icons.videocam_off),
     );
   }
 }
