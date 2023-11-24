@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms/helper/pref.dart';
 import 'package:lms/screens/attendance_screen.dart';
 import 'package:lms/recorded_sessions_screens/ai_ml.dart';
 import 'package:lms/recorded_sessions_screens/big_data_analysis.dart';
@@ -96,8 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: ListView(
             children: <Widget>[
               const UserAccountsDrawerHeader(
-                accountName: Text("lorem ipsum"),
-                accountEmail: Text("lorem_ipsum@gmail.com"),
+                accountName: Text("Tushar"),
+                accountEmail: Text("tusharsunilmasram@gmail.com"),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: Colors.white,
                   child: Icon(Icons.person),
@@ -114,8 +115,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ListTile(
                 leading: const Icon(Icons.logout),
                 title: const Text('Logout'),
-                onTap: () {
+                onTap: () async {
                   // Add your navigation logic here
+                  await Pref().removePref('remember_me');
+                  await Pref().removePref('uid');
                   _logOut();
                 },
               ),

@@ -1,4 +1,9 @@
+import 'dart:math';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:lms/helper/pref.dart';
 import 'package:lms/screens/home_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -20,6 +25,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
   }
 
+  final TextEditingController _emailID = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +39,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
                     child: TextField(
-                      decoration: InputDecoration(
+                      controller: _emailID,
+                      decoration: const InputDecoration(
                         hintText: 'Enter Email Id...',
                       ),
                     ),
@@ -59,6 +68,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: TextField(
+                      controller: _password,
                       decoration: InputDecoration(
                         hintText: 'Re-Enter Password...',
                         suffixIcon: IconButton(
@@ -74,7 +84,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                   OutlinedButton(
                     onPressed: () {
-                      register();
+                      //Get the email and password from input field
+                      String email = _emailID.text;
+                      String password = _password.text;
+
+                      //now proceed to save the data to database
+                      saveUserData(email, password);
+                      // register();
                     },
                     child: const Text('Register'),
                   ),
@@ -90,5 +106,47 @@ class _SignUpScreenState extends State<SignUpScreen> {
       context,
       MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Master of Computer Applications',)),
     );
+  }
+
+  void saveUserData(String userEmail, String password) async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    // Generate a random UID
+    String randomUid = generateRandomUid();
+
+    // Reference to the "registered_users" collection and the random UID
+    CollectionReference usersCollection = firestore.collection('registered_users');
+    DocumentReference userDoc = usersCollection.doc(randomUid);
+
+    // Save user data to the random UID document
+    await userDoc.set({
+      'userEmail': userEmail,
+      'password': password,
+    }).then((value) async {
+      // This code will be executed if the data is saved successfully
+      if (kDebugMode) {
+        print('User data saved successfully!');
+      }
+      await Pref().saveBooleanValue("remember_me", true);
+      await Pref().saveStringValue("uid", randomUid);
+      register();
+    }).catchError((error) {
+      // This code will be executed if there is an error during the save operation
+      if (kDebugMode) {
+        print('Error saving user data: $error');
+      }
+    });
+
+    if (kDebugMode) {
+      print('User data saved successfully!');
+    }
+  }
+
+  String generateRandomUid() {
+    // Generate a random UID using the current timestamp and a random number
+    Random random = Random();
+    int timestamp = DateTime.now().millisecondsSinceEpoch;
+    int randomNumber = random.nextInt(999999);
+    return '$timestamp$randomNumber';
   }
 }

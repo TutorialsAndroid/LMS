@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "139711007134",
+    "project_id": "learning-b6db0",
+    "storage_bucket": "learning-b6db0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139711007134:android:f7cc4709d768f81f6aae8f",
+        "android_client_info": {
+          "package_name": "com.lms.college.lms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBkeAJmM2QP9Qsk6wLOPdhNrT8UTNui5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
