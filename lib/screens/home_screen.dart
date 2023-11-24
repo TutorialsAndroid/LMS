@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lms/helper/pref.dart';
+import 'package:lms/helper/util.dart';
 import 'package:lms/screens/attendance_screen.dart';
 import 'package:lms/recorded_sessions_screens/ai_ml.dart';
 import 'package:lms/recorded_sessions_screens/big_data_analysis.dart';
@@ -14,9 +17,10 @@ import 'package:lms/screens/notifications_screen.dart';
 import '../my_calendar_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
+  const HomeScreen({super.key, required this.title, required this.userEmail});
 
   final String title;
+  final String userEmail;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -24,6 +28,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  String _userName = "";
+  String _userEmail = "";
 
   void _openDrawer() {
     _scaffoldKey.currentState?.openDrawer();
@@ -61,8 +67,49 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Future<void> getUserDataByEmail(String userEmail) async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    // Reference to the "registered_users" collection
+    CollectionReference usersCollection = firestore.collection('registered_users');
+
+    try {
+      // Query to find the document with the specified email
+      QuerySnapshot querySnapshot = await usersCollection.where('userEmail', isEqualTo: userEmail).get();
+
+      // Check if a document was found
+      if (querySnapshot.docs.isNotEmpty) {
+        // Retrieve the first document (assuming email is unique)
+        var userData = querySnapshot.docs.first.data() as Map<String, dynamic>?;
+
+        // Use null-aware operator to handle the possibility of userData being null
+        String? storedName = userData?['userName'] as String?;
+        String? storedEmail = userData?['userEmail'] as String?;
+
+        setState(() {
+          _userName = storedName!;
+          _userEmail = storedEmail!;
+        });
+
+      } else {
+        // Document with the specified email not found
+        if (kDebugMode) {
+          print('User with email $userEmail not found.');
+        }
+        Util().showToast('User with email $userEmail not found');
+      }
+    } catch (error) {
+      // Handle any errors that occur during the query
+      if (kDebugMode) {
+        print('Error retrieving user data: $error');
+      }
+      Util().showToast('Error retrieving data...');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    getUserDataByEmail(widget.userEmail);
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
@@ -96,10 +143,10 @@ class _HomeScreenState extends State<HomeScreen> {
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
-              const UserAccountsDrawerHeader(
-                accountName: Text("Tushar"),
-                accountEmail: Text("tusharsunilmasram@gmail.com"),
-                currentAccountPicture: CircleAvatar(
+              UserAccountsDrawerHeader(
+                accountName: Text(_userName),
+                accountEmail: Text(_userEmail),
+                currentAccountPicture: const CircleAvatar(
                   backgroundColor: Colors.white,
                   child: Icon(Icons.person),
                 ),

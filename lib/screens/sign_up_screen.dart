@@ -25,6 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
   }
 
+  final TextEditingController _name = TextEditingController();
   final TextEditingController _emailID = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
@@ -42,8 +43,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: TextField(
+                      controller: _name,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(16.0))
+                        ),
+                        hintText: 'Enter Name',
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
                       controller: _emailID,
                       decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(16.0))
+                        ),
                         hintText: 'Enter Email Id...',
                       ),
                     ),
@@ -52,25 +68,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Enter Password...',
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _isObscured ? Icons.visibility : Icons.visibility_off,
-                          ),
-                          onPressed: _togglePasswordVisibility,
-                        ),
-                      ),
-                      obscureText: _isObscured,
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: TextField(
                       controller: _password,
                       decoration: InputDecoration(
-                        hintText: 'Re-Enter Password...',
+                        border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(16.0))
+                        ),
+                        hintText: 'Enter Password...',
                         suffixIcon: IconButton(
                           icon: Icon(
                             _isObscured ? Icons.visibility : Icons.visibility_off,
@@ -84,12 +87,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                   OutlinedButton(
                     onPressed: () {
-                      //Get the email and password from input field
+                      //Get the name, email and password from input field
+                      String name = _name.text;
                       String email = _emailID.text;
                       String password = _password.text;
 
                       //now proceed to save the data to database
-                      saveUserData(email, password);
+                      saveUserData(name, email, password);
                       // register();
                     },
                     child: const Text('Register'),
@@ -100,15 +104,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void register() {
+  void register(String userEmail) {
     Navigator.pop(context);
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Master of Computer Applications',)),
+      MaterialPageRoute(builder: (context) => HomeScreen(title: 'Master of Computer Applications', userEmail: userEmail,)),
     );
   }
 
-  void saveUserData(String userEmail, String password) async {
+  void saveUserData(String name, String userEmail, String password) async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
     // Generate a random UID
@@ -120,6 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     // Save user data to the random UID document
     await userDoc.set({
+      'userName': name,
       'userEmail': userEmail,
       'password': password,
     }).then((value) async {
@@ -129,7 +134,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
       }
       await Pref().saveBooleanValue("remember_me", true);
       await Pref().saveStringValue("uid", randomUid);
-      register();
+      await Pref().saveStringValue("userEmail", userEmail);
+      register(userEmail);
     }).catchError((error) {
       // This code will be executed if there is an error during the save operation
       if (kDebugMode) {

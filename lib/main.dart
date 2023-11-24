@@ -19,7 +19,8 @@ void main() async {
     );
     // Check the "remember_me" value
     bool? rememberMe = await Pref().getBooleanValue('remember_me') ?? false;
-    runApp(MyApp(initialRoute: rememberMe == true ? '/home' : '/login'));
+    String? userEmail = await Pref().getStringValue('userEmail') ?? "";
+    runApp(MyApp(initialRoute: rememberMe == true ? '/home' : '/login', userEmail: userEmail,));
     // runApp(const MyApp());
   } catch (e) {
     if (kDebugMode) {
@@ -30,7 +31,8 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final String initialRoute;
-  const MyApp({Key? key, required this.initialRoute}) : super(key: key);
+  final String userEmail;
+  const MyApp({Key? key, required this.initialRoute, required this.userEmail}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: initialRoute,
       routes: {
-        '/home': (context) => const HomeScreen(title: 'Master of Computer Applications'),
+        '/home': (context) => HomeScreen(title: 'Master of Computer Applications', userEmail: userEmail,),
         '/login': (context) => const MyHomePage(title: 'LMS'),
       },
     );
@@ -72,12 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void login() {
+  void login(String userEmail) {
     //Handle login logic
     Navigator.pop(context);
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const HomeScreen(title: 'Master of Computer Applications',)),
+      MaterialPageRoute(builder: (context) => HomeScreen(title: 'Master of Computer Applications', userEmail: userEmail,)),
     );
   }
 
@@ -118,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //add remember me to shared pref so that user doesn't have to login next time
             await Pref().saveBooleanValue("remember_me", true);
             //Password matches
-            login();
+            login(userEmail);
           } else {
             //Password doesn't matches
             Util().showToast('Password was incorrect...');
