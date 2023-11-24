@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -9,9 +11,11 @@ import 'package:lms/screens/sign_up_screen.dart';
 import 'firebase_options.dart';
 import 'helper/pref.dart';
 
-import 'package:fluttertoast/fluttertoast.dart';
-
 void main() async {
+  // Disable SSL verification for debug builds only
+  if (const bool.fromEnvironment('dart.vm.product')) {
+    HttpOverrides.global = MyHttpOverrides();
+  }
   try {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
@@ -26,6 +30,14 @@ void main() async {
     if (kDebugMode) {
       print('Error initializing Firebase: $e');
     }
+  }
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
   }
 }
 
@@ -119,6 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
           if (storedPassword == userPassword) {
             //add remember me to shared pref so that user doesn't have to login next time
             await Pref().saveBooleanValue("remember_me", true);
+            await Pref().saveStringValue('userEmail', userEmail);
             //Password matches
             login(userEmail);
           } else {

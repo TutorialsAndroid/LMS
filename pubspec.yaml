@@ -39,6 +39,10 @@ dependencies:
   cloud_firestore: ^4.13.2
   shared_preferences: ^2.0.10
   fluttertoast: ^8.0.8
+  video_player: ^2.3.6
+  chewie: ^1.7.1
+  stacked_card_carousel: ^0.0.2
+  video_thumbnail: ^0.5.3
 
 dev_dependencies:
   flutter_test:
